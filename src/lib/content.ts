@@ -119,11 +119,27 @@ export const includedItems = [
   "Transparent planning and pricing",
 ] as const
 
-export const values = [
-  ["01", "Personal by design", "Itineraries shaped around your pace and interests."],
-  ["02", "Clear and honest", "Transparent pricing with no hidden costs."],
-  ["03", "Local connections", "Trusted hotels, drivers and guides."],
-  ["04", "Always supported", "Round-the-clock assistance."],
+export const aboutBenefits = [
+  "Personalized travel itineraries curated by experts",
+  "Transparent pricing with no hidden costs",
+  "24×7 customer support and guided assistance",
+  "Trusted network of hotels, drivers, and local partners",
+  "Focus on safety, comfort, and authentic local experiences",
+  "Small-group and private tours shaped around your pace",
+] as const
+
+export const aboutPrinciples = [
+  "Passion",
+  "Innovation",
+  "Integrity",
+  "Commitment",
+  "Teamwork",
+] as const
+
+export const aboutStats = [
+  ["2000+", "Successful tours"],
+  ["1000+", "Happy clients"],
+  ["100+", "Yearly tours"],
 ] as const
 
 export const enquiryTypes = [

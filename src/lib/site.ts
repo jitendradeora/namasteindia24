@@ -6,6 +6,12 @@ export const EMAIL = "info@namasteindia24.com"
 export const WHATSAPP = "919799358830"
 export const DEFAULT_OG_IMAGE = "/images/rj-copy.jpg"
 export const LOGO_PATH = "/brand/namaste-india-24-logo.webp"
+export const SOCIAL_LINKS = [
+  { name: "Facebook", href: "https://www.facebook.com/namasteindia24travelagency/" },
+  { name: "Instagram", href: "https://www.instagram.com/namasteindia.24/" },
+  { name: "Pinterest", href: "https://www.pinterest.com/namasteindia24/" },
+  { name: "YouTube", href: "https://www.youtube.com/@NamasteIndia24TravelAgency" },
+] as const
 
 export const organizationId = `${SITE_URL}/#organization`
 export const websiteId = `${SITE_URL}/#website`

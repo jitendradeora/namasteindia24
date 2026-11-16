@@ -1,4 +1,4 @@
-import { organizationId, SITE_NAME, SITE_URL, websiteId } from "./site"
+import { organizationId, SITE_NAME, SITE_URL, SOCIAL_LINKS, websiteId } from "./site"
 
 export { organizationId, websiteId }
 
@@ -54,6 +54,7 @@ export const organization = {
   image: `${SITE_URL}/images/rj-copy.jpg`,
   telephone: "+91-97993-58830",
   email: "info@namasteindia24.com",
+  sameAs: SOCIAL_LINKS.map((link) => link.href),
   priceRange: "€€",
   description:
     "Tailor-made private tours and small-group journeys across India and Nepal.",

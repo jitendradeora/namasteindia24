@@ -4,6 +4,7 @@ import { breadcrumb, jsonGraph, webPage } from "@/lib/schema"
 import { SITE_URL } from "@/lib/site"
 import { tours } from "@/lib/tours"
 import { CoverImage } from "@/components/CoverImage"
+import { NewsletterForm } from "@/components/NewsletterForm"
 import { FaqList } from "@/components/FaqList"
 import { JsonLd } from "@/components/JsonLd"
 import { SiteShell } from "@/components/SiteShell"
@@ -219,6 +220,7 @@ export function HomePage() {
           </Link>
         </div>
       </section>
+      <NewsletterForm />
       <JsonLd
         data={jsonGraph(
           webPage({

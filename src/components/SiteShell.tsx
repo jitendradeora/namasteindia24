@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import { BackToTop } from "./BackToTop"
 import { SiteFooter } from "./SiteFooter"
 import { SiteHeader } from "./SiteHeader"
+import { SocialStrip } from "./SocialStrip"
 
 export function SiteShell({
   variant = "inner",
@@ -16,7 +17,8 @@ export function SiteShell({
       <main id="main" tabIndex={-1}>
         {children}
       </main>
-      <SiteFooter variant={variant} />
+      <SocialStrip />
+      <SiteFooter />
       <BackToTop />
     </div>
   )

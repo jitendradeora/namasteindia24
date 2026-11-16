@@ -127,6 +127,56 @@ export function TargetIcon(props: IconProps) {
   )
 }
 
+const socialMarks = {
+  Facebook: (
+    <path
+      fill="currentColor"
+      d="M14.8 8.4h-2V7.1c0-.5.3-.6.6-.6H14.7V4h-1.9C10.6 4 9.8 5.6 9.8 7v1.4H8v2.6h1.8V20h2.6v-9h2.1l.3-2.6z"
+    />
+  ),
+  Instagram: (
+    <>
+      <rect x="4" y="4" width="16" height="16" rx="4.5" stroke="currentColor" strokeWidth="1.75" />
+      <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeWidth="1.75" />
+      <circle cx="16.7" cy="7.3" r="0.9" fill="currentColor" stroke="none" />
+    </>
+  ),
+  Pinterest: (
+    <path
+      fill="currentColor"
+      d="M12 3.2C7.8 3.2 5.2 6.3 5.2 9.8c0 2.2 1.2 3.5 2 3.5.3 0 .5-.8.5-1 0-.3-.7-.9-.7-2.1 0-2.4 1.9-4.6 4.8-4.6 2.6 0 4.1 1.6 4.1 3.8 0 2.8-1.3 5.2-3.1 5.2-1 0-1.8-.9-1.5-1.9.3-1.2.8-2.5.8-3.4 0-.8-.4-1.4-1.3-1.4-1 0-1.8 1-1.8 2.4 0 .9.3 1.5.3 1.5L8.2 17c-.3 1.4-.1 3.2 0 3.4.1.1.2 0 .2-.1.3-.4 1.1-1.4 1.5-2.8.2-.6.8-2.3.8-2.3.4.7 1.5 1.4 2.8 1.4 3.6 0 6.2-3.3 6.2-7.8 0-3.9-3.2-6.6-7.7-6.6z"
+    />
+  ),
+  YouTube: (
+    <>
+      <rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" fill="currentColor" />
+      <path d="M10.4 9.4v5.2l4.8-2.6-4.8-2.6z" fill="#173d2d" />
+    </>
+  ),
+} as const
+
+export function SocialIcon({
+  name,
+  size = 18,
+}: {
+  name: keyof typeof socialMarks
+  size?: number
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className="icon"
+    >
+      {socialMarks[name]}
+    </svg>
+  )
+}
+
 export function StarIcon({ size = 12, className, ...props }: IconProps) {
   return (
     <svg
