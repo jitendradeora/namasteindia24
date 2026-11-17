@@ -1,18 +1,30 @@
 import Link from "next/link"
-import { includedItems } from "@/lib/content"
 import { liveItineraries } from "@/lib/itineraries"
 import { breadcrumb, jsonGraph, organizationId, webPage } from "@/lib/schema"
 import { SITE_URL } from "@/lib/site"
+import { tourFacts, tourHealth } from "@/lib/tourFacts"
 import { euroAmount, tourPath, type Tour } from "@/lib/tours"
-import { ArrowRightIcon, CheckIcon } from "@/components/icons"
+import { ArrowRightIcon, CheckIcon, CloseIcon } from "@/components/icons"
 import { DayAccordion } from "@/components/DayAccordion"
 import { JsonLd } from "@/components/JsonLd"
 import { PageHero } from "@/components/PageHero"
 import { SiteShell } from "@/components/SiteShell"
 
+function FactLine({ text }: { text: string }) {
+  const split = text.indexOf(":")
+  if (split < 1 || split > 48) return text
+  return (
+    <>
+      <b>{text.slice(0, split)}</b>
+      {text.slice(split)}
+    </>
+  )
+}
+
 export function TourView({ tour }: { tour: Tour }) {
   const path = tourPath(tour.slug)
   const itinerary = liveItineraries[path] ?? []
+  const facts = tourFacts[tour.slug]
   const parent =
     tour.region === "India & Nepal"
       ? { name: "Nepal tours", path: "/nepal-tour/" }
@@ -72,22 +84,84 @@ export function TourView({ tour }: { tour: Tour }) {
           <DayAccordion sections={itinerary} />
         </div>
       </section>
-      <section className="included">
-        <div className="container">
-          <div>
-            <p className="eyebrow light">Travel with confidence</p>
-            <h2>Thoughtfully included</h2>
+      {facts ? (
+        <section className="fare">
+          <div className="container fare-grid">
+            <article>
+              <p className="eyebrow light">What’s included</p>
+              <h2>Inclusive</h2>
+              <ul className="fare-list inclusive-list">
+                {facts.included.map((item) => (
+                  <li key={item}>
+                    <CheckIcon size={16} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="exclusive-card">
+              <p className="eyebrow">Not included</p>
+              <h2>Exclusive</h2>
+              <ul className="fare-list">
+                {facts.excluded.map((item) => (
+                  <li key={item}>
+                    <CloseIcon size={14} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              {facts.extras.length > 0 ? (
+                <>
+                  <p className="fare-extra">Extra</p>
+                  <ul className="fare-list">
+                    {facts.extras.map((item) => (
+                      <li key={item}>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </article>
           </div>
-          <div className="included-grid">
-            {includedItems.map((item) => (
-              <p key={item}>
-                <CheckIcon size={16} />
-                {item}
-              </p>
-            ))}
+        </section>
+      ) : null}
+      {facts ? (
+        <section className="journey-notes">
+          <div className="container notes-grid">
+            <article>
+              <p className="eyebrow">Travel documents & money</p>
+              <h2>Before you go</h2>
+              <ul>
+                {facts.documents.map((item) => (
+                  <li key={item}>
+                    <FactLine text={item} />
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article>
+              <p className="eyebrow">Seasons & climate</p>
+              <h2>When to travel</h2>
+              <ul>
+                {facts.seasons.map((item) => (
+                  <li key={item}>
+                    <FactLine text={item} />
+                  </li>
+                ))}
+              </ul>
+              {facts.seasonNotes.map((note) => (
+                <p key={note}>{note}</p>
+              ))}
+            </article>
           </div>
-        </div>
-      </section>
+          <div className="container">
+            <p className="health-note">
+              <b>Health.</b> {tourHealth}
+            </p>
+          </div>
+        </section>
+      ) : null}
       <section className="book-strip">
         <div className="container">
           <div>

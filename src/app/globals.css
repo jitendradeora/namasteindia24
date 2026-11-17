@@ -1270,6 +1270,105 @@ footer {
   align-items: flex-start;
   gap: 10px;
 }
+.fare {
+  background: var(--forest);
+  color: #fff;
+  padding: 90px 0;
+}
+.fare-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.72fr;
+  gap: 36px;
+  align-items: start;
+}
+.fare h2 {
+  margin: 8px 0 8px;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+}
+.fare-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.inclusive-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+}
+.fare-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid #ffffff24;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.fare-list .icon {
+  flex: none;
+  margin-top: 3px;
+  color: #ffad6f;
+}
+.exclusive-card {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 28px 26px 16px;
+}
+.exclusive-card .fare-list li {
+  border-top-color: #e6e0d4;
+}
+.exclusive-card .fare-list .icon {
+  color: var(--orange);
+}
+.fare-extra {
+  margin: 22px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.journey-notes {
+  background: var(--cream);
+  padding: 80px 0;
+}
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.notes-grid article {
+  background: var(--paper);
+  padding: 32px 30px 22px;
+}
+.notes-grid h2 {
+  margin: 8px 0 6px;
+  font-size: clamp(32px, 3vw, 44px);
+}
+.notes-grid ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.notes-grid li {
+  padding: 12px 0;
+  border-top: 1px solid #e6e0d4;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.notes-grid article > p {
+  margin-top: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.health-note {
+  margin-top: 22px;
+  padding: 18px 22px;
+  background: var(--paper);
+  border-left: 3px solid var(--orange);
+  line-height: 1.65;
+}
 .book-strip {
   padding: 70px 0;
   background: #f0eadc;
@@ -1840,6 +1939,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 45px;
   }
+  .fare-grid,
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
   .value-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1904,7 +2007,8 @@ footer {
   .included {
     padding: 70px 0;
   }
-  .included-grid {
+  .included-grid,
+  .inclusive-list {
     grid-template-columns: 1fr;
   }
   .book-strip > .container {
